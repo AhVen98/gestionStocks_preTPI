@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace locationMateriel
 {
-    class Persons
+    public class Persons
     {
+        protected string firstName;
+        protected string lastName;
+        protected DateTime birthdate;
+        protected string emailAdress;
+
+        public Persons(string firstName, string lastName, DateTime birthdate, string emailAdress)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthdate = birthdate;
+            this.emailAdress = emailAdress;
+        }
     }
 }
