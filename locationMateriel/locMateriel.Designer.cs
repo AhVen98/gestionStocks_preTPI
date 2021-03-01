@@ -62,6 +62,7 @@
             this.btnAddObject.TabIndex = 1;
             this.btnAddObject.Text = "Ajouter un objet";
             this.btnAddObject.UseVisualStyleBackColor = true;
+            this.btnAddObject.Click += new System.EventHandler(this.btnAddObject_Click);
             // 
             // btnRentObject
             // 

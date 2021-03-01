@@ -26,5 +26,10 @@ namespace locationMateriel
         {
 
         }
+
+        private void btnAddObject_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,0 +1,8 @@
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\bin\Debug\netstandard2.0\locationMaterielLibrary.deps.json
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\bin\Debug\netstandard2.0\locationMaterielLibrary.dll
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\bin\Debug\netstandard2.0\locationMaterielLibrary.pdb
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\obj\Debug\netstandard2.0\locationMaterielLibrary.AssemblyInfoInputs.cache
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\obj\Debug\netstandard2.0\locationMaterielLibrary.AssemblyInfo.cs
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\obj\Debug\netstandard2.0\locationMaterielLibrary.csproj.CoreCompileInputs.cache
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\obj\Debug\netstandard2.0\locationMaterielLibrary.dll
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibrary\obj\Debug\netstandard2.0\locationMaterielLibrary.pdb

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "locationMateriel", "locationMateriel.csproj", "{A6DF890D-499C-454E-919E-6A14575C73C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "locationMaterielView", "locationMaterielView.csproj", "{A6DF890D-499C-454E-919E-6A14575C73C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "locationMaterielTests", "..\locationMaterielTests\locationMaterielTests.csproj", "{1AAE2488-FDC0-4150-8CB0-A5F06C400FCB}"
 EndProject

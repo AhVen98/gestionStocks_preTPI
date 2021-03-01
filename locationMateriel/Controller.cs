@@ -8,6 +8,11 @@ namespace locationMateriel
 {
     class Controller
     {
+        public bool addObject()
+        {
+            bool res = true;
 
+            return bool;
+        }
     }
 }

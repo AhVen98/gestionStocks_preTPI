@@ -22,19 +22,22 @@ namespace locationMateriel
             this.emailAdress = emailAdress;
         }
 
-        public void RentObject(Object objectName)
+        static public bool RentObject(Object objectName)
         {
-
+            bool res = true;
+            return res;
         }
 
-        public void AddObject(Object objectName)
+        static public bool AddObject(Object objectName)
         {
-
+            bool res = true;
+            return res;
         }
 
-        public void ReturnObject(Object objectName)
+        static public bool ReturnObject(Object objectName)
         {
-
+            bool res = true;
+            return res;
         }
     }
 }
