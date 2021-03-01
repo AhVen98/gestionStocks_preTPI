@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GoRUeCEK3WNgcyLXQ7zkgpcN0WeSvMt9ABG3CpB7uBevl1DerNU0SowIy0Fx1iJ8i+pFUO5Rxh2+SQfBmc5VRQ==",
+  "dgSpecHash": "EBmZ2aWKg4oo32Zb9Z1zfKV7+unBr9gh+9hWoQCbSs3TV6CHxfRs+po4x7Gu3Oo7w7jCS/EbbiWStXStekoH8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\UnitTestLocationMateriel.csproj",
+  "projectFilePath": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\locationMaterielTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\paola.costa\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\paola.costa\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

@@ -1,0 +1,2 @@
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielTests\obj\Debug\locationMaterielTests.csprojAssemblyReference.cache
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielTests\obj\Debug\locationMaterielTests.csproj.CoreCompileInputs.cache

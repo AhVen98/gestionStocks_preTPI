@@ -1,14 +1,23 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using locationMateriel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace UnitTestLocationMateriel
+
+namespace locationMateriel.Tests
 {
-    [TestClass]
-    public class ClientsTest
+    [TestClass()]
+    public class PersonsTests
     {
-        [TestInitialize]
-        public void init()
-        {
         
+        
+        [TestInitialize]
+        public void Init()
+        {
+            Persons client;
         
         }
       
@@ -16,7 +25,6 @@ namespace UnitTestLocationMateriel
         public void client_constructeur_OK()
         {
             
-
         }
     }
 }

@@ -5722,9 +5722,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\UnitTestLocationMateriel.csproj",
-      "projectName": "UnitTestLocationMateriel",
-      "projectPath": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\UnitTestLocationMateriel.csproj",
+      "projectUniqueName": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\locationMaterielTests.csproj",
+      "projectName": "locationMaterielTests",
+      "projectPath": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\locationMaterielTests.csproj",
       "packagesPath": "C:\\Users\\paola.costa\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\UnitTestLocationMateriel\\obj\\",
       "projectStyle": "PackageReference",
