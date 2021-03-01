@@ -60,7 +60,7 @@ INSERT INTO `types` VALUES
 
 
 -- -----------------------------------------------------
--- insertion in table roles
+-- insertion in table persons
 -- column : id, role_id, firstname, lastname, birthdate, mail
 -- -----------------------------------------------------
 INSERT INTO `persons` VALUES 
@@ -80,21 +80,27 @@ INSERT INTO `persons` VALUES
 INSERT INTO `objects` (`id`, `type_id`, `adder_id`, `name`, `description`, `dateAdded`,`remark`
 ) VALUES 
 (1, 16, 4,'pelle','pelle classique pour creuser des trous', '2020-01-01','manche abîmé'),
-(2, 20, 4,'gilet de sécurité jaune','gilet du sécurité de couleur jaune, taille XL', '2020-01-01'),
-(3, 4, 4,'tracteur JDX1020','tracteur john deer, modèle X, octobre 2020, vert', '2020-01-01'),
 (4, 14, 5,'dameuse LS2059','dameuse 6m, jaune', '2020-01-01','peinture écaillée sur rétroviseur droit'),
-(5, 12, 5,'foreuse','foreuse 10m, noire', '2020-01-01'),
-(6, 2, 4,'chapiteau de fête','chapiteau rond, diamètre 12m, poteaux fournis avec, hauteur sous plafond 4m', '2020-01-01'),
 (7, 3, 5,'ordinateur portable Dell1450','ordinateur de bureautique', '2020-01-01','manche abîmé'),
 (8, 16, 4,'pelle','pelle classique pour creuser des trous', '2020-01-01','manche abîmé'),
 (9, 16, 4,'pelle','pelle classique pour creuser des trous', '2020-01-01','manche abîmé')
 ;
 
-
+INSERT INTO `objects` (`id`, `type_id`, `adder_id`, `name`, `description`, `dateAdded`) VALUES 
+(2, 20, 4,'gilet de sécurité jaune','gilet du sécurité de couleur jaune, taille XL', '2020-01-01'),
+(3, 4, 4,'tracteur JDX1020','tracteur john deer, modèle X, octobre 2020, vert', '2020-01-01'),
+(5, 12, 5,'foreuse','foreuse 10m, noire', '2020-01-01'),
+(6, 2, 4,'chapiteau de fête','chapiteau rond, diamètre 12m, poteaux fournis avec, hauteur sous plafond 4m', '2020-01-01')
+;
 -- -----------------------------------------------------
 -- insertion in table locations
 -- column : id, object_id, locator_id, employee_id, beginDateLocation, endDateLocation, effectiveReturnDate
 -- -----------------------------------------------------
 INSERT INTO `locations` VALUES 
+(1, 2, 1,4,'2020-01-01', '2020-03-01','2020-03-01')
+;
 
+
+INSERT INTO `locations` (`id`, `object_id`, `locator_id`, `employee_id`,`beginDateLocation`, `endDateLocation`) VALUES 
+(2, 6, 3,4,'2020-01-01', '2020-03-01')
 ;
