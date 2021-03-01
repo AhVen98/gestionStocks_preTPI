@@ -16,7 +16,7 @@ namespace locationMateriel.Tests
         [TestInitialize]
         public void Init()
         {
-            testObject = new Objects();
+            testObject = new Objects("test1", "test2",DateTime.Now, "essai");
         }
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace locationMateriel.Tests
         {
             bool resExpected = true;
 
-            bool resCalculated = AddObject(testObject);
+            bool resCalculated = Employees.AddObject(testObject);
 
             Assert.AreEqual(resExpected, resCalculated);
         }

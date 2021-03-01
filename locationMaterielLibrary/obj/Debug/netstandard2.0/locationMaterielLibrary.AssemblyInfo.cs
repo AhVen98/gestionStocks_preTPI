@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("UnitTestLocationMateriel")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("locationMaterielLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("UnitTestLocationMateriel")]
-[assembly: System.Reflection.AssemblyTitleAttribute("UnitTestLocationMateriel")]
+[assembly: System.Reflection.AssemblyProductAttribute("locationMaterielLibrary")]
+[assembly: System.Reflection.AssemblyTitleAttribute("locationMaterielLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
