@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using locationMateriel;
 
 namespace locationMateriel
 {
@@ -29,7 +30,7 @@ namespace locationMateriel
 
         private void btnAddObject_Click(object sender, EventArgs e)
         {
-
+            Controller.MethodToCall("add");
         }
     }
 }

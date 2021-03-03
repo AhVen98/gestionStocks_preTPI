@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace locationMateriel
 {
-    class Clients:Persons
+    public class Clients:Persons
     {
         private string firstName;
         private string lastName;
