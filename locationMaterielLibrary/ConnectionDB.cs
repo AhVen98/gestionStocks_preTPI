@@ -18,7 +18,7 @@ namespace locationMateriel
             InitConnexion();
         }
 
-        // Méthode pour initialiser la connexion
+        // Method to initialize connection
         private void InitConnexion()
         {
             // Création de la chaîne de connexion
@@ -26,6 +26,27 @@ namespace locationMateriel
             string connectionString = "SERVER=127.0.0.1; DATABASE=materialLocation; UID=root; PASSWORD=root";
             connection = new MySqlConnection(connectionString);
 
+        }
+
+        // Method to initialise the variable for the query
+        public MySqlCommand CreateQuery()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+
+            return cmd;
+        }
+
+        // Method to execute the query received in parameter
+        public void ExecuteQuery(MySqlCommand command)
+        {
+            MySqlCommand cmd = command ;
+            cmd.ExecuteNonQuery();
+        }
+
+        // Method to close the connection to database
+        public void CloseConnection()
+        { 
+            connection.Close();
         }
 
         // Méthode pour ajouter un contact
