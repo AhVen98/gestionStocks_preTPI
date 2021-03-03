@@ -32,6 +32,9 @@ namespace locationMateriel
                 case "pdf":
                     /** todo */
                     break;
+                case "research":
+                    /** todo */
+                    break;
                 default:
                     break;
             }

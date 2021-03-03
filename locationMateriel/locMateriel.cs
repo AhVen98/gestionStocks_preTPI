@@ -30,7 +30,37 @@ namespace locationMateriel
 
         private void btnAddObject_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("add");
+            /** todo */            
+        }
+
+        private void btnRentObject_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("rent");
+        }
+
+        private void btnReturnObject_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("return");
+        }
+
+        private void btnReturnDateOver_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("delay");
+        }
+
+        private void btnLocationHistory_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("logs");
+        }
+
+        private void btnGeneratePDF_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("generate");
+        }
+
+        private void btnResearch_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("research");
         }
     }
 }
