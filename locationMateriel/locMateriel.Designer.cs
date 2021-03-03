@@ -74,6 +74,7 @@
             this.btnRentObject.TabIndex = 1;
             this.btnRentObject.Text = "Louer un objet";
             this.btnRentObject.UseVisualStyleBackColor = true;
+            this.btnRentObject.Click += new System.EventHandler(this.btnRentObject_Click);
             // 
             // btnReturnObject
             // 
@@ -85,6 +86,7 @@
             this.btnReturnObject.TabIndex = 1;
             this.btnReturnObject.Text = "Retourner un objet";
             this.btnReturnObject.UseVisualStyleBackColor = true;
+            this.btnReturnObject.Click += new System.EventHandler(this.btnReturnObject_Click);
             // 
             // btnReturnDateOver
             // 
@@ -96,6 +98,7 @@
             this.btnReturnDateOver.TabIndex = 1;
             this.btnReturnDateOver.Text = "Délai dépassé";
             this.btnReturnDateOver.UseVisualStyleBackColor = true;
+            this.btnReturnDateOver.Click += new System.EventHandler(this.btnReturnDateOver_Click);
             // 
             // btnLocationHistory
             // 
@@ -107,6 +110,7 @@
             this.btnLocationHistory.TabIndex = 1;
             this.btnLocationHistory.Text = "Historique de location";
             this.btnLocationHistory.UseVisualStyleBackColor = true;
+            this.btnLocationHistory.Click += new System.EventHandler(this.btnLocationHistory_Click);
             // 
             // btnGeneratePDF
             // 
@@ -118,6 +122,7 @@
             this.btnGeneratePDF.TabIndex = 1;
             this.btnGeneratePDF.Text = "Générer un PDF";
             this.btnGeneratePDF.UseVisualStyleBackColor = true;
+            this.btnGeneratePDF.Click += new System.EventHandler(this.btnGeneratePDF_Click);
             // 
             // btnResearch
             // 
@@ -127,6 +132,7 @@
             this.btnResearch.TabIndex = 3;
             this.btnResearch.Text = "Rechercher";
             this.btnResearch.UseVisualStyleBackColor = true;
+            this.btnResearch.Click += new System.EventHandler(this.btnResearch_Click);
             // 
             // txtResearch
             // 
