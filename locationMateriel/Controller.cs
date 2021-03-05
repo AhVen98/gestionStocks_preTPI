@@ -9,9 +9,10 @@ namespace locationMateriel
 {
     public class Controller
     {
+        
         // Method to direct the program to do the right action, depending on the button clicked
         static public void MethodToCall(string action)
-        {
+        {         
             switch (action)
             {
                 case "add":

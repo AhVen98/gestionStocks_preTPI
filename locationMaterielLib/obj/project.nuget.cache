@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "f/JfLUAPdIp0ePIsGCEIpBSwW/KxULej6Waq3FawSXshpH+otwvQb4c7iaFrdwj7qxo2XgPOOymmDfaN74eIdQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\paola.costa\\Documents\\GitHub\\gestionStocks_preTPI\\locationMaterielLib\\locationMaterielLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\paola.costa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\paola.costa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

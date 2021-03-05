@@ -37,31 +37,44 @@ namespace locationMateriel
             return cmd;
         }
 
-        public MySqlCommand GetStateFromObject(int id)
+        public string GetStateFromObject(int id)
         {
+            string res = "";
+            
+            connDB.CreateQuery();
             cmd.CommandText = "SELECT objects.state FROM objects WHERE objects.id =@id";
             cmd.Parameters.AddWithValue("@id", id);
-            return cmd;
+            MySqlDataReader value = connDB.Select(cmd);
+            if (value.Read())
+            {
+                res = value[0].ToString();
+            }
+            else
+            {
+                Controller.MethodToCall("cancel");
+            }
+            return res;
         }
 
         public int GetIDFromType(string name)
         {
+            int res = 0 ;
+
             connDB.CreateQuery();
             cmd.CommandText = "SELECT types.id FROM types WHERE types.name = @name";
             cmd.Parameters.AddWithValue("@name", name);
             MySqlDataReader value = connDB.Select(cmd);
             if (value.Read()) {
-                int res = (int)value[0];
+                res = (int)value[0];
             }
             else 
             {
                 Controller.MethodToCall("cancel");
             }
-
             return res;
         }
 
-        public MySqlCommand AddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
         {
             int typeID = GetIDFromType(type);
 
@@ -83,9 +96,7 @@ namespace locationMateriel
             cmd.Parameters.AddWithValue("@remark", remark);
             cmd.Parameters.AddWithValue("@employeeNumber", employeeNumber);
 
-
-            int res = connDB.ExecuteQuery(cmd);
-            return res;
+            connDB.ExecuteQuery(cmd);
         }
 
     }
