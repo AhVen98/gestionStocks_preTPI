@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using locationMateriel;
 
 namespace locationMateriel
 {
@@ -28,10 +29,18 @@ namespace locationMateriel
             return res;
         }
 
-        static public bool AddObject(Object objectName)
+        static public bool AddObject(string name, string type, string description, int employeeNumber, string remark = "")
         {
-            bool res = true;
-            return res;
+            bool res = RequestDB.AddObject(name, type, description, employeeNumber, remark);
+            if (res == true)
+            {
+                //message que tout a fonctionné
+            }
+            else
+            {
+                //message de non-fonctionnement
+            }
+            //retour à l'accueil
         }
 
         static public bool ReturnObject(Object objectName)

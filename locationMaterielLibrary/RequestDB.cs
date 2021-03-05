@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
+using locationMateriel;
 
-namespace locationMaterielLibrary
+namespace locationMateriel
 {
     public class RequestDB
     {
@@ -39,5 +40,38 @@ namespace locationMaterielLibrary
             cmd.Parameters.AddWithValue("@id", id);
             return cmd;
         }
+
+        public MySqlCommand GetIDFromType(string name)
+        {
+            ConnectionDB.CreateQuery();
+            cmd.CommandText = "SELECT types.id FROM types WHERE types.name = @name";
+            cmd.Parameters.AddWithValue("@name", name);
+            int res = ConnectionDB.ExecuteQuery(cmd);
+            return res;
+        }
+
+        public MySqlCommand AddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        {
+            int typeID = GetIDFromType(type);
+            
+            // the object has a remark associated to it
+            if (remark != "")
+            {
+                cmd.CommandText = "INSERT INTO objects (name, type_id, adder_id, dateAdded, description, remark) VALUES (@name,  @type, @employeeNumber, @date, @description, @remark)";
+            }
+            // the object has no remark
+            else
+            {
+                cmd.CommandText = "";
+            }
+            cmd.Parameters.AddWithValue("@date", DateTime.Today);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@type", typeID);
+            cmd.Parameters.AddWithValue("@description", description);
+            cmd.Parameters.AddWithValue("@remark", remark);
+            cmd.Parameters.AddWithValue("@employeeNumber", employeeNumber);
+            return cmd;
+        }
+
     }
 }
