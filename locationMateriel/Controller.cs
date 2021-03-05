@@ -15,13 +15,13 @@ namespace locationMateriel
             switch (action)
             {
                 case "add":
-                    Employees.AddObject();
+                    //Employees.AddObject();
                     break;
                 case "return":
-                    Employees.ReturnObject();
+                    //Employees.ReturnObject();
                     break;
                 case "rent":
-                    Employees.RentObject();
+                    //Employees.RentObject();
                     break;
                 case "delay":
                     /** todo */
@@ -38,7 +38,6 @@ namespace locationMateriel
                 default:
                     break;
             }
-
         }
     }
 }

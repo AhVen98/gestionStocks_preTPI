@@ -143,7 +143,7 @@
             // 
             // pBInformations
             // 
-            this.pBInformations.BackColor = System.Drawing.Color.White;
+            this.pBInformations.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pBInformations.InitialImage = null;
             this.pBInformations.Location = new System.Drawing.Point(19, 146);
             this.pBInformations.Margin = new System.Windows.Forms.Padding(0);

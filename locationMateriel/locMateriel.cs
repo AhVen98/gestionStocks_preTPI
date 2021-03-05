@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using locationMateriel;
 
 namespace locationMateriel
 {
@@ -30,16 +29,21 @@ namespace locationMateriel
 
         private void btnAddObject_Click(object sender, EventArgs e)
         {
-            /** todo */            
+            frmAddObject frmAdd = new frmAddObject();
+            frmAdd.Show();
         }
 
         private void btnRentObject_Click(object sender, EventArgs e)
         {
+            //frmRentObject frmRent = new frmRentObject();
+            //frmRent.Show();
             Controller.MethodToCall("rent");
         }
 
         private void btnReturnObject_Click(object sender, EventArgs e)
         {
+            //frmReturnObject frmReturn = new frmReturnObject();
+            //frmReturn.Show();
             Controller.MethodToCall("return");
         }
 
@@ -60,7 +64,14 @@ namespace locationMateriel
 
         private void btnResearch_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("research");
+            if (txtResearch.Text == "")
+            {
+                Controller.MethodToCall("default");
+            }
+            else
+            {
+                Controller.MethodToCall("research");
+            }
         }
     }
 }
