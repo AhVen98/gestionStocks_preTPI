@@ -157,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(937, 560);
+            this.ClientSize = new System.Drawing.Size(937, 556);
             this.Controls.Add(this.txtResearch);
             this.Controls.Add(this.btnResearch);
             this.Controls.Add(this.pBInformations);
@@ -168,6 +168,8 @@
             this.Controls.Add(this.btnRentObject);
             this.Controls.Add(this.btnAddObject);
             this.Controls.Add(this.lblLocationMat_Title);
+            this.MaximumSize = new System.Drawing.Size(953, 595);
+            this.MinimumSize = new System.Drawing.Size(953, 595);
             this.Name = "locMateriel";
             this.Text = "Location de matériel";
             this.Load += new System.EventHandler(this.locMateriel_Load);
