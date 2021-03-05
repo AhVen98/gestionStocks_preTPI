@@ -22,7 +22,7 @@ namespace locationMateriel
 
         }
 
-        private void btnAddObject_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             Controller.MethodToCall("add");
         }

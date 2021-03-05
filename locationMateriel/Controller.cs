@@ -35,6 +35,9 @@ namespace locationMateriel
                 case "research":
                     /** todo */
                     break;
+                case "cancel":
+                    /** todo */
+                    break;
                 default:
                     break;
             }

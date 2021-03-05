@@ -33,9 +33,10 @@ namespace locationMateriel
             this.txtType = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.txtRemark = new System.Windows.Forms.RichTextBox();
-            this.btnAddObject = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAddObject = new System.Windows.Forms.Label();
+            this.txtEmployeeNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtName
@@ -70,15 +71,15 @@ namespace locationMateriel
             this.txtRemark.TabIndex = 3;
             this.txtRemark.Text = "Remarque";
             // 
-            // btnAddObject
+            // btnAdd
             // 
-            this.btnAddObject.Location = new System.Drawing.Point(444, 253);
-            this.btnAddObject.Name = "btnAddObject";
-            this.btnAddObject.Size = new System.Drawing.Size(75, 23);
-            this.btnAddObject.TabIndex = 4;
-            this.btnAddObject.Text = "Ajouter";
-            this.btnAddObject.UseVisualStyleBackColor = true;
-            this.btnAddObject.Click += new System.EventHandler(this.btnAddObject_Click);
+            this.btnAdd.Location = new System.Drawing.Point(444, 253);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Ajouter";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // button1
             // 
@@ -99,6 +100,14 @@ namespace locationMateriel
             this.lblAddObject.TabIndex = 5;
             this.lblAddObject.Text = "Ajouter un objet";
             // 
+            // txtEmployeeNumber
+            // 
+            this.txtEmployeeNumber.Location = new System.Drawing.Point(424, 53);
+            this.txtEmployeeNumber.Name = "txtEmployeeNumber";
+            this.txtEmployeeNumber.Size = new System.Drawing.Size(95, 20);
+            this.txtEmployeeNumber.TabIndex = 0;
+            this.txtEmployeeNumber.Text = "numéro d\'employé";
+            // 
             // frmAddObject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,10 +116,11 @@ namespace locationMateriel
             this.ClientSize = new System.Drawing.Size(533, 289);
             this.Controls.Add(this.lblAddObject);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnAddObject);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtType);
+            this.Controls.Add(this.txtEmployeeNumber);
             this.Controls.Add(this.txtName);
             this.Name = "frmAddObject";
             this.Text = "Ajouter un objet";
@@ -126,8 +136,9 @@ namespace locationMateriel
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.RichTextBox txtRemark;
-        private System.Windows.Forms.Button btnAddObject;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblAddObject;
+        private System.Windows.Forms.TextBox txtEmployeeNumber;
     }
 }

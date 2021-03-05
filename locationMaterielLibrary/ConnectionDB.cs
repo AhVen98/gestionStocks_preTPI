@@ -18,6 +18,7 @@ namespace locationMateriel
             InitConnexion();
         }
 
+        
         // Method to initialize connection
         private void InitConnexion()
         {
@@ -29,7 +30,7 @@ namespace locationMateriel
         }
 
         // Method to initialise the variable for the query
-        public MySqlCommand CreateQuery()
+        public static MySqlCommand CreateQuery()
         {
             MySqlCommand cmd = connection.CreateCommand();
 
@@ -37,20 +38,20 @@ namespace locationMateriel
         }
 
         // Method to execute the query received in parameter
-        public void ExecuteQuery(MySqlCommand command)
+        public static void ExecuteQuery(MySqlCommand command)
         {
             MySqlCommand cmd = command ;
             cmd.ExecuteNonQuery();
         }
 
         // Method to close the connection to database
-        public void CloseConnection()
+        public static void CloseConnection()
         { 
             connection.Close();
         }
 
         // Méthode pour ajouter un contact
-        public void AddObject(Object newObject)
+        public static void AddObject(Object newObject)
         {
             try
             {
