@@ -34,7 +34,7 @@ namespace locationMateriel
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.txtRemark = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.lblAddObject = new System.Windows.Forms.Label();
             this.txtEmployeeNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -60,7 +60,7 @@ namespace locationMateriel
             this.txtDescription.Location = new System.Drawing.Point(11, 105);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(509, 96);
-            this.txtDescription.TabIndex = 2;
+            this.txtDescription.TabIndex = 3;
             this.txtDescription.Text = "Description";
             // 
             // txtRemark
@@ -68,7 +68,7 @@ namespace locationMateriel
             this.txtRemark.Location = new System.Drawing.Point(12, 208);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(508, 38);
-            this.txtRemark.TabIndex = 3;
+            this.txtRemark.TabIndex = 4;
             this.txtRemark.Text = "Remarque";
             // 
             // btnAdd
@@ -76,19 +76,20 @@ namespace locationMateriel
             this.btnAdd.Location = new System.Drawing.Point(444, 253);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Ajouter";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(363, 253);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Annuler";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(363, 253);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblAddObject
             // 
@@ -105,8 +106,7 @@ namespace locationMateriel
             this.txtEmployeeNumber.Location = new System.Drawing.Point(424, 53);
             this.txtEmployeeNumber.Name = "txtEmployeeNumber";
             this.txtEmployeeNumber.Size = new System.Drawing.Size(95, 20);
-            this.txtEmployeeNumber.TabIndex = 0;
-            this.txtEmployeeNumber.Text = "numéro d\'employé";
+            this.txtEmployeeNumber.TabIndex = 2;
             // 
             // frmAddObject
             // 
@@ -115,13 +115,15 @@ namespace locationMateriel
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(533, 289);
             this.Controls.Add(this.lblAddObject);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtType);
             this.Controls.Add(this.txtEmployeeNumber);
             this.Controls.Add(this.txtName);
+            this.MaximumSize = new System.Drawing.Size(549, 328);
+            this.MinimumSize = new System.Drawing.Size(549, 328);
             this.Name = "frmAddObject";
             this.Text = "Ajouter un objet";
             this.Load += new System.EventHandler(this.AddObjectForm_Load);
@@ -137,7 +139,7 @@ namespace locationMateriel
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.RichTextBox txtRemark;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblAddObject;
         private System.Windows.Forms.TextBox txtEmployeeNumber;
     }

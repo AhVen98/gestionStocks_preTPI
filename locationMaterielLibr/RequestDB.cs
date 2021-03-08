@@ -10,19 +10,12 @@ namespace locationMateriel
 {
     public class RequestDB
     {
-        MySqlCommand cmd;
         ConnectionDB connDB = new ConnectionDB();
-        /**
-                // Requête SQL
-                cmd.CommandText = "INSERT INTO objects (id, name, tel) VALUES (@id, @name, @tel)";
+        
 
-                // utilisation de l'objet contact passé en paramètre
-                cmd.Parameters.AddWithValue("@id", newObject.Id);
-                cmd.Parameters.AddWithValue("@name", newObject.Name);
-                cmd.Parameters.AddWithValue("@tel", newObject.Tel);
-         */
         public MySqlCommand ShowObject(int id, bool state)
         {
+            MySqlCommand cmd = connDB.CreateQuery();
             // the object is available to rent (not rented)
             if (state == true)
             {
@@ -37,10 +30,11 @@ namespace locationMateriel
             return cmd;
         }
 
-        public string GetStateFromObject(int id)
+        public string ReqGetStateFromObject(int id)
         {
             string res = "";
-            
+            MySqlCommand cmd = connDB.CreateQuery();
+
             connDB.CreateQuery();
             cmd.CommandText = "SELECT objects.state FROM objects WHERE objects.id =@id";
             cmd.Parameters.AddWithValue("@id", id);
@@ -51,16 +45,16 @@ namespace locationMateriel
             }
             else
             {
-                Controller.MethodToCall("cancel");
+
             }
             return res;
         }
 
-        public int GetIDFromType(string name)
+        public int ReqGetIDFromType(string name)
         {
-            int res = 0 ;
+            int res = -1 ;
+            MySqlCommand cmd = connDB.CreateQuery();
 
-            connDB.CreateQuery();
             cmd.CommandText = "SELECT types.id FROM types WHERE types.name = @name";
             cmd.Parameters.AddWithValue("@name", name);
             MySqlDataReader value = connDB.Select(cmd);
@@ -69,25 +63,47 @@ namespace locationMateriel
             }
             else 
             {
-                Controller.MethodToCall("cancel");
+                
             }
+            value.Dispose();
             return res;
         }
 
-        public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        public int ReqGetIDFromName(string name)
         {
-            int typeID = GetIDFromType(type);
+            int res = -1;
+            MySqlCommand cmd = connDB.CreateQuery();
 
-            connDB.CreateQuery();
+            cmd.CommandText = "SELECT objects.id FROM types WHERE objects.name = @name";
+            cmd.Parameters.AddWithValue("@name", name);
+            MySqlDataReader value = connDB.Select(cmd);
+            if (value.Read())
+            {
+                res = (int)value[0];
+            }
+            else
+            {
+
+            }
+            value.Dispose();
+            return res;
+        }
+
+        public void ReqAddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        {
+            connDB.OpenConnection();
+            int typeID = ReqGetIDFromType(type);
+
+            MySqlCommand cmd = connDB.CreateQuery();
             // the object has a remark associated to it
             if (remark != "")
             {
-                cmd.CommandText = "INSERT INTO objects (name, type_id, adder_id, dateAdded, description, remark) VALUES (@name,  @type, @employeeNumber, @date, @description, @remark)";
+                cmd.CommandText = "INSERT INTO objects (name, type_id, adder_id, dateAdded, description) VALUES (@name,  @type, @employeeNumber, @date, @description)";
             }
             // the object has no remark
             else
             {
-                cmd.CommandText = "";
+                cmd.CommandText = "INSERT INTO objects (name, type_id, adder_id, dateAdded, description, remark) VALUES (@name,  @type, @employeeNumber, @date, @description, @remark)";
             }
             cmd.Parameters.AddWithValue("@date", DateTime.Today);
             cmd.Parameters.AddWithValue("@name", name);
@@ -97,7 +113,27 @@ namespace locationMateriel
             cmd.Parameters.AddWithValue("@employeeNumber", employeeNumber);
 
             connDB.ExecuteQuery(cmd);
+            connDB.CloseConnection();
         }
 
+
+        public void ReqRentObject(int objectID, int locator_id, int adder_id, DateTime endRentingTime)
+        {
+            connDB.OpenConnection();
+            MySqlCommand cmd = connDB.CreateQuery();
+
+            cmd.CommandText = "INSERT INTO locations (object_id, locator_id, adder_id, beginRent, endRent) VALUES (@objID,  @locatorNumber, @employeeNumber, @beginDate, @endDate)";
+            
+            cmd.Parameters.AddWithValue("@beginDate", DateTime.Today);
+            cmd.Parameters.AddWithValue("@objID", objectID);
+            cmd.Parameters.AddWithValue("@locatorNumber", locator_id);
+            cmd.Parameters.AddWithValue("@employeeNumber", adder_id);
+            cmd.Parameters.AddWithValue("@beginDate", DateTime.Today);
+            cmd.Parameters.AddWithValue("@endDate", endRentingTime);
+
+            connDB.ExecuteQuery(cmd);
+            connDB.CloseConnection();
+
+        }
     }
 }

@@ -24,7 +24,21 @@ namespace locationMateriel
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("add");
+            int value = -1;
+            if (int.TryParse(txtEmployeeNumber.Text, out value))
+            {
+                Controller.MethodToCall("add", value, txtType.Text, txtName.Text, txtDescription.Text, txtRemark.Text);
+                ActiveForm.Close();
+            }
+            else
+            {
+                MessageBox.Show("Problème là !!!");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("cancel");
         }
     }
 }

@@ -36,9 +36,8 @@ namespace locationMateriel
 
         private void btnRentObject_Click(object sender, EventArgs e)
         {
-            //frmRentObject frmRent = new frmRentObject();
-            //frmRent.Show();
-            Controller.MethodToCall("rent");
+            frmRentObject frmRent = new frmRentObject();
+            frmRent.Show();
         }
 
         private void btnReturnObject_Click(object sender, EventArgs e)

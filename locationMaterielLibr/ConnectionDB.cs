@@ -18,7 +18,8 @@ namespace locationMateriel
             InitConnexion();
         }
 
-        
+        MySqlCommand cmd;
+
         // Method to initialize connection
         private void InitConnexion()
         {
@@ -32,22 +33,30 @@ namespace locationMateriel
         // Method to initialise the variable for the query
         public MySqlCommand CreateQuery()
         {
-            MySqlCommand cmd = connection.CreateCommand();
-
+            cmd = connection.CreateCommand();
             return cmd;
         }
 
         // Method to execute the query received in parameter
         public void ExecuteQuery(MySqlCommand command)
         {
-            MySqlCommand cmd = command ;
+            cmd = command ;
             cmd.ExecuteNonQuery();
         }
 
+       
+
+        // Method used in other to read the content of a select in database
         public MySqlDataReader Select(MySqlCommand command)
         {
-            MySqlCommand cmd = command;
+            cmd = command;
             return cmd.ExecuteReader();
+        }
+
+        // Method to open the connection to database
+        public void OpenConnection()
+        {
+            connection.Open();
         }
 
         // Method to close the connection to database
@@ -57,33 +66,14 @@ namespace locationMateriel
         }
 
         // Méthode pour ajouter un contact
-        public void AddObject(Object newObject)
+        public void excGestion(Object newObject)
         {
             try
             {
-                // Ouverture de la connexion SQL
-                connection.Open();
-
-                // Création d'une commande SQL en fonction de l'objet connection
-                MySqlCommand cmd = connection.CreateCommand();
-                /**
-                // Requête SQL
-                cmd.CommandText = "INSERT INTO objects (id, name, tel) VALUES (@id, @name, @tel)";
-
-                // utilisation de l'objet contact passé en paramètre
-                cmd.Parameters.AddWithValue("@id", newObject.Id);
-                cmd.Parameters.AddWithValue("@name", newObject.Name);
-                cmd.Parameters.AddWithValue("@tel", newObject.Tel);
-                */
-                // Exécution de la commande SQL
-                cmd.ExecuteNonQuery();
-
-                // Fermeture de la connexion
-                connection.Close();
+                
             }
             catch (Exception exc)
             {
-
                 // Gestion des erreurs :
                 // Possibilité de créer un Logger pour les exceptions SQL reçus
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.

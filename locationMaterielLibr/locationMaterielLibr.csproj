@@ -97,12 +97,6 @@
     <Compile Include="RequestDB.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\locationMateriel\locationMaterielView.csproj">
-      <Project>{a6df890d-499c-454e-919e-6a14575c73c9}</Project>
-      <Name>locationMaterielView</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

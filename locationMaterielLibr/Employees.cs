@@ -15,6 +15,10 @@ namespace locationMateriel
         private DateTime birthDate;
         private string emailAdress;
 
+        bool res = true;
+
+        RequestDB req = new RequestDB();
+
         public Employees(string firstName, string lastName, DateTime birthDate, string emailAdress): base(firstName, lastName, birthDate, emailAdress)
         {
             this.firstName = firstName;
@@ -23,30 +27,44 @@ namespace locationMateriel
             this.emailAdress = emailAdress;
         }
 
-        static public bool RentObject(Object objectName)
+        
+        public void RentObject(string objName, int locator_id, int adder_id, DateTime expectedReturn )
         {
-            bool res = true;
-            return res;
-        }
-
-        static public bool AddObject(string name, string type, string description, int employeeNumber, string remark = "")
-        {
-            bool res = RequestDB.AddObject(name, type, description, employeeNumber, remark);
-            if (res == true)
+            int objID = req.ReqGetIDFromName(objName);
+            req.ReqRentObject(objID, locator_id, adder_id, expectedReturn);
+            if (res != true)
             {
-                //message que tout a fonctionné
+
             }
             else
             {
-                //message de non-fonctionnement
+
             }
-            //retour à l'accueil
         }
 
-        static public bool ReturnObject(Object objectName)
+        public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
         {
-            bool res = true;
-            return res;
+            req.ReqAddObject(name, type, description, employeeNumber, remark);
+            if (res != true)
+            {
+
+            }
+            else
+            {
+                
+            }
+        }
+
+        public void ReturnObject(string name, DateTime returnDate)
+        {
+            if (res != true)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }
