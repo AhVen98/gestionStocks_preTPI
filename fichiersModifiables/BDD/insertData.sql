@@ -55,7 +55,8 @@ INSERT INTO `types` VALUES
 (17,1,'outils d\'entretien'),
 (18,1,'outils de nettoyage'),
 (19,5,'casques'),
-(20,5,'gilets')
+(20,5,'gilets'),
+(21, 6, 'divers')
 ;
 
 
@@ -83,7 +84,7 @@ INSERT INTO `objects` (`id`, `type_id`, `adder_id`, `name`, `description`, `date
 (4, 14, 5,'dameuse LS2059','dameuse 6m, jaune', '2020-01-01','peinture écaillée sur rétroviseur droit'),
 (7, 3, 5,'ordinateur portable Dell1450','ordinateur de bureautique', '2020-01-01','manche abîmé'),
 (8, 16, 4,'pelle','pelle classique pour creuser des trous', '2020-01-01','manche abîmé'),
-(9, 16, 4,'pelle','pelle classique pour creuser des trous', '2020-01-01','manche abîmé')
+(9, 16, 4,'pelle2','pelle classique pour creuser des trous', '2020-01-01','manche abîmé')
 ;
 
 INSERT INTO `objects` (`id`, `type_id`, `adder_id`, `name`, `description`, `dateAdded`) VALUES 
