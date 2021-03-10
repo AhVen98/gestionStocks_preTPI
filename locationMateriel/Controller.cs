@@ -13,12 +13,12 @@ namespace locationMateriel
 
 
         // Method to direct the program to do the right action, depending on the button clicked
-        static public void MethodToCall(string action, int employeeNumber = 0, string type="conteneurs", string name="", string description="", string remark="", DateTime returnDate = DateTime.Today, int locatorNumber = 0)
+        static public void MethodToCall(string action, int employeeNumber = 0, string type="conteneurs", string name="", string description="", string remark="", int locatorNumber = 0)
         {
             Employees emp = new Employees("default", "default", DateTime.Today, "default");
             frmAddObject add = new frmAddObject();
             frmRentObject rent = new frmRentObject();
-            
+            DateTime returnDate = DateTime.Today;
 
             switch (action)
             {
