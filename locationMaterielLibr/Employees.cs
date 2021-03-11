@@ -34,12 +34,10 @@ namespace locationMateriel
             req.ReqRentObject(objID, locator_id, adder_id, expectedReturn);
         }
 
-        public void AddObject(Objects obj)
+        public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
         {
-            //string name, string type, string description, int employeeNumber, string remark = ""
-            
-            int typeID = req.ReqGetIDFromType(obj.type);
-            req.ReqAddObject(obj);
+            int typeID = req.ReqGetIDFromType(type);
+            req.ReqAddObject(name, typeID, description, employeeNumber, remark);
         }
 
         public void ReturnObject(string name, DateTime returnDate)

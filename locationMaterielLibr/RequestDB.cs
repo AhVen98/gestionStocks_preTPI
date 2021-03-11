@@ -85,9 +85,8 @@ namespace locationMateriel
             return res;
         }
 
-        public void ReqAddObject(Objects obj)
+        public void ReqAddObject(string name, int typeID, string description, int employeeNumber, string remark = "")
         {
-            // string name, int typeID, string description, int employeeNumber, string remark = ""
             connDB.OpenConnection();
 
             MySqlCommand cmd = connDB.CreateQuery();
