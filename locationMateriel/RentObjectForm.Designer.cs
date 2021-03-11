@@ -91,6 +91,7 @@ namespace locationMateriel
             this.btnRent.TabIndex = 10;
             this.btnRent.Text = "Louer";
             this.btnRent.UseVisualStyleBackColor = true;
+            this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
             // 
             // btnCancel
             // 
@@ -147,7 +148,7 @@ namespace locationMateriel
             // txtClientLastName
             // 
             this.txtClientLastName.Enabled = false;
-            this.txtClientLastName.Location = new System.Drawing.Point(87, 152);
+            this.txtClientLastName.Location = new System.Drawing.Point(87, 153);
             this.txtClientLastName.Name = "txtClientLastName";
             this.txtClientLastName.Size = new System.Drawing.Size(193, 20);
             this.txtClientLastName.TabIndex = 14;

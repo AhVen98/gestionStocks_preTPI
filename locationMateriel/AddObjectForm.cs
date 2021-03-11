@@ -38,7 +38,7 @@ namespace locationMateriel
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("cancel");
+            ActiveForm.Close();
         }
     }
 }

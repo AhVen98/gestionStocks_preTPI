@@ -12,7 +12,6 @@ namespace locationMateriel
     {
         ConnectionDB connDB = new ConnectionDB();
         
-
         public MySqlCommand ShowObject(int id, bool state)
         {
             MySqlCommand cmd = connDB.CreateQuery();
@@ -45,7 +44,7 @@ namespace locationMateriel
             }
             else
             {
-
+                res = "valeur incorrecte récupérée";
             }
             return res;
         }
@@ -63,7 +62,8 @@ namespace locationMateriel
             }
             else 
             {
-                
+                // si aucune valeur n'est détectée, le type "divers" est récupéré pour l'objet
+                res = 21;
             }
             value.Dispose();
             return res;
@@ -80,31 +80,28 @@ namespace locationMateriel
             if (value.Read())
             {
                 res = (int)value[0];
-            }
-            else
-            {
-
-            }
+            }                       
             value.Dispose();
             return res;
         }
 
-        public void ReqAddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        public void ReqAddObject(Objects obj)
         {
+            // string name, int typeID, string description, int employeeNumber, string remark = ""
             connDB.OpenConnection();
-            int typeID = ReqGetIDFromType(type);
 
             MySqlCommand cmd = connDB.CreateQuery();
-            // the object has a remark associated to it
-            if (remark != "")
+            // the object has no remark associated to it
+            if (remark == "")
             {
                 cmd.CommandText = "INSERT INTO objects (name, type_id, adder_id, dateAdded, description) VALUES (@name,  @type, @employeeNumber, @date, @description)";
             }
-            // the object has no remark
+            // the object has a remark associated
             else
             {
                 cmd.CommandText = "INSERT INTO objects (name, type_id, adder_id, dateAdded, description, remark) VALUES (@name,  @type, @employeeNumber, @date, @description, @remark)";
             }
+            // link to all parameters needed in the request
             cmd.Parameters.AddWithValue("@date", DateTime.Today);
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@type", typeID);

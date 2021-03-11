@@ -43,10 +43,6 @@ namespace locationMateriel
                 case "research":
                     /** todo */
                     break;
-                case "cancel":
-                    /** todo */
-                    frmAddObject.ActiveForm.Close();
-                    break;
                 default:
                     break;
             }

@@ -19,7 +19,7 @@ namespace locationMateriel
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("cancel");
+            ActiveForm.Close();
         }
 
         private void rbtnNewClient_CheckedChanged(object sender, EventArgs e)
@@ -100,6 +100,11 @@ namespace locationMateriel
                 lblMail.Visible = false;
                 lblClientNumber.Visible = true;
             }
+        }
+
+        private void btnRent_Click(object sender, EventArgs e)
+        {
+            Controller.MethodToCall("rent");
         }
     }
 }

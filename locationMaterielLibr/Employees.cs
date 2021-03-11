@@ -32,27 +32,14 @@ namespace locationMateriel
         {
             int objID = req.ReqGetIDFromName(objName);
             req.ReqRentObject(objID, locator_id, adder_id, expectedReturn);
-            if (res != true)
-            {
-
-            }
-            else
-            {
-
-            }
         }
 
-        public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        public void AddObject(Objects obj)
         {
-            req.ReqAddObject(name, type, description, employeeNumber, remark);
-            if (res != true)
-            {
-
-            }
-            else
-            {
-                
-            }
+            //string name, string type, string description, int employeeNumber, string remark = ""
+            
+            int typeID = req.ReqGetIDFromType(obj.type);
+            req.ReqAddObject(obj);
         }
 
         public void ReturnObject(string name, DateTime returnDate)
