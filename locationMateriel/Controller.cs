@@ -37,7 +37,10 @@ namespace locationMateriel
                 case "logs":
                     /** todo */
                     break;
-                case "pdf":
+                case "pdf_rented":
+                    /** todo */
+                    break;
+                case "pdf_available":
                     /** todo */
                     break;
                 case "research":

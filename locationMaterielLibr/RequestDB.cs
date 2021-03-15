@@ -131,5 +131,12 @@ namespace locationMateriel
             connDB.CloseConnection();
 
         }
+    
+        public List<Object> ReqResearchBy(string researchText)
+        {
+            List lstObject =[];
+
+            return lstObject;
+        }
     }
 }
