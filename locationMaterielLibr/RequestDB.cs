@@ -132,11 +132,11 @@ namespace locationMateriel
 
         }
     
-        public List<Object> ReqResearchBy(string researchText)
+        public void ReqResearchBy(string researchText)
         {
-            List lstObject =[];
+            //List lstObject =[];
 
-            return lstObject;
+            //return lstObject;
         }
     }
 }
