@@ -132,6 +132,8 @@ namespace locationMateriel
 
         }
     
+
+
         public void ReqResearchBy(string researchText)
         {
             //List lstObject =[];

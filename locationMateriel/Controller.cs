@@ -9,7 +9,11 @@ namespace locationMateriel
 {
     public class Controller
     {
-
+        static public List<Objects> ShowAll()
+        {
+            List<Objects> lst = new List<Objects>();
+            return lst;
+        }
 
 
         // Method to direct the program to do the right action, depending on the button clicked

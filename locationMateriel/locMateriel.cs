@@ -42,9 +42,8 @@ namespace locationMateriel
 
         private void btnReturnObject_Click(object sender, EventArgs e)
         {
-            //frmReturnObject frmReturn = new frmReturnObject();
-            //frmReturn.Show();
-            Controller.MethodToCall("return");
+            frmReturnObject frmReturn = new frmReturnObject();
+            frmReturn.Show();
         }
 
         private void btnReturnDateOver_Click(object sender, EventArgs e)

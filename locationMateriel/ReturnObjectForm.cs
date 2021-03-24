@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace locationMateriel
 {
-    public partial class ReturnObjectForm : Form
+    public partial class frmReturnObject : Form
     {
-        public ReturnObjectForm()
+        public frmReturnObject()
         {
             InitializeComponent();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ActiveForm.Close();
         }
     }
 }
