@@ -21,5 +21,15 @@ namespace locationMateriel
         {
             ActiveForm.Close();
         }
+
+        private void btnRentedPDF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAvailablePDF_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

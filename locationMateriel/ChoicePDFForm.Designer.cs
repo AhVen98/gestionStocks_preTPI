@@ -42,6 +42,7 @@ namespace locationMateriel
             this.btnRentedPDF.TabIndex = 0;
             this.btnRentedPDF.Text = "Objets loués";
             this.btnRentedPDF.UseVisualStyleBackColor = true;
+            this.btnRentedPDF.Click += new System.EventHandler(this.btnRentedPDF_Click);
             // 
             // btnAvailablePDF
             // 
@@ -51,6 +52,7 @@ namespace locationMateriel
             this.btnAvailablePDF.TabIndex = 1;
             this.btnAvailablePDF.Text = "Objets disponibles";
             this.btnAvailablePDF.UseVisualStyleBackColor = true;
+            this.btnAvailablePDF.Click += new System.EventHandler(this.btnAvailablePDF_Click);
             // 
             // btnCancel
             // 

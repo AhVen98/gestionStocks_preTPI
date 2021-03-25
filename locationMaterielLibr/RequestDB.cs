@@ -131,8 +131,27 @@ namespace locationMateriel
             connDB.CloseConnection();
 
         }
-    
 
+        public Array getObjects(string condition = "all")
+        {
+            string[,] detailedObjects = { {"test" },{"test" } };
+            //default configuration where every objects are shown in the application
+            if (condition == "all")
+            {
+
+            }
+            // when clicking on "délai dépassé", only the rented objects, not returned in the correct time, will be shown
+            else if(condition == "retarded")
+            {
+
+            }
+            // if a research has been done, the specified term is the condition upon which the objects will be chosen to be shown
+            else
+            {
+                
+            }
+            return detailedObjects;
+        }
 
         public void ReqResearchBy(string researchText)
         {
