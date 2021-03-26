@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace locationMateriel
 {
-    public partial class ChoicePDFForm : Form
+    public partial class frmChoicePDF : Form
     {
-        public ChoicePDFForm()
+        public frmChoicePDF()
         {
             InitializeComponent();
         }
@@ -24,12 +24,12 @@ namespace locationMateriel
 
         private void btnRentedPDF_Click(object sender, EventArgs e)
         {
-
+            Controller.MethodToCall("pdf_rented");
         }
 
         private void btnAvailablePDF_Click(object sender, EventArgs e)
         {
-
+            Controller.MethodToCall("pdf_available");
         }
     }
 }

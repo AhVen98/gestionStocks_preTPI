@@ -20,7 +20,57 @@ namespace locationMateriel
 
         private void locMateriel_Load(object sender, EventArgs e)
         {
+            List<string> lstTab = new List<string>();
+            //string[] row = { };
 
+            dgvGlobal.ColumnCount = 6;
+            //option for display
+            dgvGlobal.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
+            dgvGlobal.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvGlobal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvGlobal.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvGlobal.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dgvGlobal.GridColor = Color.Black;
+
+            //columns name
+            dgvGlobal.Columns[0].Name = "Nom";
+            dgvGlobal.Columns[1].Name = "Type";
+            dgvGlobal.Columns[2].Name = "État";
+            dgvGlobal.Columns[3].Name = "Locataire";
+            dgvGlobal.Columns[4].Name = "Date de retour limite";
+            dgvGlobal.Columns[5].Name = "Id";
+            dgvGlobal.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+
+
+            //Controller.MethodToCall("base");
+
+            
+            List<Objects> lstObj = Objects.Load();
+            foreach (Objects obj in lstObj)
+            {
+                /*lstTab.Add(obj.Name);
+                lstTab.Add(obj.State);
+                row = lstTab.ToArray();*/
+                string[] row = { obj.Name, obj.State};
+                dgvGlobal.Rows.Add(row);
+            }
+            /*try
+            {
+                //connect to the database
+                connection = new ConnectionBD();
+
+                //get the list of video games and display it
+                List<VideoGame> listVideoGames = connection.GetVideoGames();
+                foreach (VideoGame vg in listVideoGames)
+                {
+                dgvGlobal.Rows.Add(vg.DisplayRow());
+                }
+            }
+            catch (Exception vgex)
+            {
+                MessageBox.Show(vgex.Message);
+            }*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -58,7 +108,8 @@ namespace locationMateriel
 
         private void btnGeneratePDF_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("generate");
+            frmChoicePDF frmPDF = new frmChoicePDF();
+            frmPDF.Show();
         }
 
         private void btnResearch_Click(object sender, EventArgs e)

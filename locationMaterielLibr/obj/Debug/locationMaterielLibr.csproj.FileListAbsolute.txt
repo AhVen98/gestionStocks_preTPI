@@ -30,3 +30,5 @@ C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibr\
 C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibr\obj\Debug\locationMaterielLibr.csproj.CopyComplete
 C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibr\obj\Debug\locationMaterielLibr.dll
 C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibr\obj\Debug\locationMaterielLibr.pdb
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibr\bin\Debug\itextsharp.dll
+C:\Users\paola.costa\Documents\GitHub\gestionStocks_preTPI\locationMaterielLibr\bin\Debug\itextsharp.xml

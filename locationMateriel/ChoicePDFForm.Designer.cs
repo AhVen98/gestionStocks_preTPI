@@ -1,7 +1,7 @@
 ﻿
 namespace locationMateriel
 {
-    partial class ChoicePDFForm
+    partial class frmChoicePDF
     {
         /// <summary>
         /// Required designer variable.
@@ -64,7 +64,7 @@ namespace locationMateriel
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ChoicePDFForm
+            // frmChoicePDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,7 +74,7 @@ namespace locationMateriel
             this.Controls.Add(this.btnRentedPDF);
             this.MaximumSize = new System.Drawing.Size(549, 328);
             this.MinimumSize = new System.Drawing.Size(549, 328);
-            this.Name = "ChoicePDFForm";
+            this.Name = "frmChoicePDF";
             this.Text = "Sélectionner le type de PDF";
             this.ResumeLayout(false);
 

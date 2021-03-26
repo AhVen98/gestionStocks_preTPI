@@ -27,7 +27,14 @@ namespace locationMateriel
             int value = -1;
             if (int.TryParse(txtEmployeeNumber.Text, out value))
             {
-                Controller.MethodToCall("add", value, txtType.Text, txtName.Text, txtDescription.Text, txtRemark.Text);
+                //Controller.MethodToCall("add", value, txtType.Text, txtName.Text, txtDescription.Text, txtRemark.Text);
+                string name = txtName.Text;
+                string type = txtType.Text;
+                string description = txtDescription.Text;
+                int employeeNumber = 0;
+                bool res = int.TryParse(txtEmployeeNumber.Text, out employeeNumber);
+                string remark = txtRemark.Text;
+                Employees.AddObject(name, type, description, employeeNumber, remark);
                 ActiveForm.Close();
             }
             else

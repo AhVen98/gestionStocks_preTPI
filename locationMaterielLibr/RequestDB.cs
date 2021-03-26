@@ -51,6 +51,7 @@ namespace locationMateriel
 
         public int ReqGetIDFromType(string name)
         {
+            connDB.OpenConnection();
             int res = -1 ;
             MySqlCommand cmd = connDB.CreateQuery();
 
@@ -66,11 +67,14 @@ namespace locationMateriel
                 res = 21;
             }
             value.Dispose();
+            connDB.CloseConnection();
             return res;
         }
 
         public int ReqGetIDFromName(string name)
         {
+            connDB.OpenConnection();
+
             int res = -1;
             MySqlCommand cmd = connDB.CreateQuery();
 
@@ -82,6 +86,7 @@ namespace locationMateriel
                 res = (int)value[0];
             }                       
             value.Dispose();
+            connDB.CloseConnection();
             return res;
         }
 
@@ -132,25 +137,33 @@ namespace locationMateriel
 
         }
 
-        public Array getObjects(string condition = "all")
+        public List<Objects> getObjects()
         {
-            string[,] detailedObjects = { {"test" },{"test" } };
-            //default configuration where every objects are shown in the application
-            if (condition == "all")
-            {
+            List<Objects> lstAll = new List<Objects>();
+            string state;
+            string name;
+            
+            connDB.OpenConnection();
 
-            }
-            // when clicking on "délai dépassé", only the rented objects, not returned in the correct time, will be shown
-            else if(condition == "retarded")
-            {
+            MySqlCommand cmd = connDB.CreateQuery();
 
-            }
-            // if a research has been done, the specified term is the condition upon which the objects will be chosen to be shown
-            else
+            cmd.CommandText = "SELECT objects.id, objects.name, types.name AS type, objects.state, persons.firstname, locations.endDateLocation " +
+                "FROM " +
+                "objects " +
+                "LEFT JOIN locations ON objects.id = locations.object_id" +
+                " LEFT JOIN persons ON locations.locator_id = persons.id " +
+                "INNER JOIN types ON objects.type_id = types.id";
+                            
+            MySqlDataReader value = connDB.Select(cmd);
+            
+            while (value.Read())
             {
-                
+                name = value[1].ToString();
+                state = value[3].ToString();
+                Objects obj = new Objects(name, state);
+                lstAll.Add(obj);
             }
-            return detailedObjects;
+            return lstAll;
         }
 
         public void ReqResearchBy(string researchText)
@@ -158,6 +171,22 @@ namespace locationMateriel
             //List lstObject =[];
 
             //return lstObject;
+        }
+
+        public int ReqPDF(string state)
+        {
+            int res = -1;
+            MySqlCommand cmd = connDB.CreateQuery();
+
+            cmd.CommandText = "SELECT objects.id FROM types WHERE objects.name = @name";
+            cmd.Parameters.AddWithValue("@name", state);
+            MySqlDataReader value = connDB.Select(cmd);
+            if (value.Read())
+            {
+                res = (int)value[0];
+            }
+            value.Dispose();
+            return res;
         }
     }
 }

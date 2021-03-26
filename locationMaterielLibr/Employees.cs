@@ -15,9 +15,6 @@ namespace locationMateriel
         private DateTime birthDate;
         private string emailAdress;
 
-        bool res = true;
-
-        RequestDB req = new RequestDB();
 
         public Employees(string firstName, string lastName, DateTime birthDate, string emailAdress): base(firstName, lastName, birthDate, emailAdress)
         {
@@ -28,20 +25,24 @@ namespace locationMateriel
         }
 
         
-        public void RentObject(string objName, int locator_id, int adder_id, DateTime expectedReturn )
+        static public void RentObject(string objName, int locator_id, int adder_id, DateTime expectedReturn )
         {
+            RequestDB req = new RequestDB();
             int objID = req.ReqGetIDFromName(objName);
             req.ReqRentObject(objID, locator_id, adder_id, expectedReturn);
         }
 
-        public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
+        static public void AddObject(string name, string type, string description, int employeeNumber, string remark = "")
         {
+            RequestDB req = new RequestDB();
             int typeID = req.ReqGetIDFromType(type);
             req.ReqAddObject(name, typeID, description, employeeNumber, remark);
         }
 
-        public void ReturnObject(string name, DateTime returnDate)
+        static public void ReturnObject(string name, DateTime returnDate)
         {
+
+            bool res = true;
             if (res != true)
             {
 
@@ -51,5 +52,23 @@ namespace locationMateriel
 
             }
         }
+
+        static public void printPDF(string data)
+        {
+            RequestDB req = new RequestDB();
+
+            string state;
+            if (data == "rented")
+            {
+                state = "unavailable";
+            }
+            else
+            {
+                state = "available";
+            }
+            req.ReqPDF(state);
+        }
+
+        
     }
 }

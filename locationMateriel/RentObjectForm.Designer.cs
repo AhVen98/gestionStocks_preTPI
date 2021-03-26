@@ -48,6 +48,7 @@ namespace locationMateriel
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblBirth = new System.Windows.Forms.Label();
             this.lblMail = new System.Windows.Forms.Label();
+            this.lblInDevelopment = new System.Windows.Forms.Label();
             this.grpClient.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +106,7 @@ namespace locationMateriel
             // 
             // grpClient
             // 
+            this.grpClient.Controls.Add(this.lblInDevelopment);
             this.grpClient.Controls.Add(this.rbtnNewClient);
             this.grpClient.Controls.Add(this.rbtnExistingClient);
             this.grpClient.Location = new System.Drawing.Point(11, 79);
@@ -231,6 +233,17 @@ namespace locationMateriel
             this.lblMail.Text = "E-Mail";
             this.lblMail.Visible = false;
             // 
+            // lblInDevelopment
+            // 
+            this.lblInDevelopment.AutoSize = true;
+            this.lblInDevelopment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInDevelopment.ForeColor = System.Drawing.Color.Red;
+            this.lblInDevelopment.Location = new System.Drawing.Point(82, 45);
+            this.lblInDevelopment.Name = "lblInDevelopment";
+            this.lblInDevelopment.Size = new System.Drawing.Size(154, 13);
+            this.lblInDevelopment.TabIndex = 20;
+            this.lblInDevelopment.Text = "Pas encore implémenté !!!";
+            // 
             // frmRentObject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +299,6 @@ namespace locationMateriel
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblBirth;
         private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.Label lblInDevelopment;
     }
 }

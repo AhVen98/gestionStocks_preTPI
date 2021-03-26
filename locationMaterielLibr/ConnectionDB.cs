@@ -27,7 +27,12 @@ namespace locationMateriel
 
             string connectionString = "SERVER=127.0.0.1; DATABASE=materialLocation; UID=root; PASSWORD=root";
             connection = new MySqlConnection(connectionString);
+        }
 
+        // Method to open the connection to database
+        public void OpenConnection()
+        {
+            connection.Open();
         }
 
         // Method to initialise the variable for the query
@@ -45,7 +50,6 @@ namespace locationMateriel
         }
 
        
-
         // Method used in other to read the content of a select in database
         public MySqlDataReader Select(MySqlCommand command)
         {
@@ -53,33 +57,11 @@ namespace locationMateriel
             return cmd.ExecuteReader();
         }
 
-        // Method to open the connection to database
-        public void OpenConnection()
-        {
-            connection.Open();
-        }
 
         // Method to close the connection to database
         public void CloseConnection()
         { 
             connection.Close();
         }
-
-        // Méthode pour ajouter un contact
-        public void excGestion(Object newObject)
-        {
-            try
-            {
-                
-            }
-            catch (Exception exc)
-            {
-                // Gestion des erreurs :
-                // Possibilité de créer un Logger pour les exceptions SQL reçus
-                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
-            }
-        }
-
-
     }
 }

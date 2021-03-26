@@ -19,21 +19,32 @@ namespace locationMateriel
         // Method to direct the program to do the right action, depending on the button clicked
         static public void MethodToCall(string action, int employeeNumber = 0, string type="conteneurs", string name="", string description="", string remark="", int locatorNumber = 0)
         {
-            Employees emp = new Employees("default", "default", DateTime.Today, "default");
             frmAddObject add = new frmAddObject();
             frmRentObject rent = new frmRentObject();
             DateTime returnDate = DateTime.Today;
 
             switch (action)
             {
+                case "base":
+                   /* List<string> lstTab = new List<string>();
+                    string[] row = { };
+                    List<Objects> lstObj= Objects.Load();
+                    foreach (Objects obj in lstObj)
+                    {
+                        lstTab.Add(obj.Name);
+                        lstTab.Add(obj.State);
+                        row = lstTab.ToArray();
+                        baseAppli.DgvGlobal.Rows.Add(row);
+                    }*/
+                    break;
                 case "add":
-                    emp.AddObject(name, type, description, employeeNumber, remark);
+                    Employees.AddObject(name, type, description, employeeNumber, remark);
                     break;
                 case "return":
-                    emp.ReturnObject(name, returnDate);
+                    Employees.ReturnObject(name, returnDate);
                     break;
                 case "rent":
-                    emp.RentObject(name, locatorNumber, employeeNumber, returnDate);
+                    Employees.RentObject(name, locatorNumber, employeeNumber, returnDate);
                     break;
                 case "delay":
                     /** todo */
@@ -42,7 +53,6 @@ namespace locationMateriel
                     /** todo */
                     break;
                 case "pdf_rented":
-                    /** todo */
                     break;
                 case "pdf_available":
                     /** todo */

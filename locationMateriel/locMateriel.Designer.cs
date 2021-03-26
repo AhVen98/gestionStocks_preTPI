@@ -37,12 +37,8 @@
             this.btnGeneratePDF = new System.Windows.Forms.Button();
             this.btnResearch = new System.Windows.Forms.Button();
             this.txtResearch = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.chObjectName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chObjectState = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chRenter = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chReturnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dgvGlobal = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGlobal)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLocationMat_Title
@@ -145,49 +141,13 @@
             this.txtResearch.Size = new System.Drawing.Size(157, 20);
             this.txtResearch.TabIndex = 4;
             // 
-            // listView1
+            // dgvGlobal
             // 
-            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chObjectName,
-            this.chType,
-            this.chObjectState,
-            this.chRenter,
-            this.chReturnDate});
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.HideSelection = false;
-            this.listView1.HoverSelection = true;
-            this.listView1.Location = new System.Drawing.Point(19, 146);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(736, 400);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // chObjectName
-            // 
-            this.chObjectName.Text = "nom de l\'objet";
-            this.chObjectName.Width = 146;
-            // 
-            // chObjectState
-            // 
-            this.chObjectState.Text = "état";
-            this.chObjectState.Width = 146;
-            // 
-            // chRenter
-            // 
-            this.chRenter.Text = "locataire";
-            this.chRenter.Width = 146;
-            // 
-            // chReturnDate
-            // 
-            this.chReturnDate.Text = "date de retour limite";
-            this.chReturnDate.Width = 146;
-            // 
-            // chType
-            // 
-            this.chType.Text = "type";
-            this.chType.Width = 146;
+            this.dgvGlobal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGlobal.Location = new System.Drawing.Point(19, 149);
+            this.dgvGlobal.Name = "dgvGlobal";
+            this.dgvGlobal.Size = new System.Drawing.Size(736, 397);
+            this.dgvGlobal.TabIndex = 6;
             // 
             // locMateriel
             // 
@@ -195,7 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(937, 556);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dgvGlobal);
             this.Controls.Add(this.txtResearch);
             this.Controls.Add(this.btnResearch);
             this.Controls.Add(this.btnGeneratePDF);
@@ -210,6 +170,7 @@
             this.Name = "locMateriel";
             this.Text = "Location de matériel";
             this.Load += new System.EventHandler(this.locMateriel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGlobal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,12 +187,7 @@
         private System.Windows.Forms.Button btnGeneratePDF;
         private System.Windows.Forms.Button btnResearch;
         private System.Windows.Forms.TextBox txtResearch;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader chObjectName;
-        private System.Windows.Forms.ColumnHeader chObjectState;
-        private System.Windows.Forms.ColumnHeader chRenter;
-        private System.Windows.Forms.ColumnHeader chReturnDate;
-        private System.Windows.Forms.ColumnHeader chType;
+        private System.Windows.Forms.DataGridView dgvGlobal;
     }
 }
 
