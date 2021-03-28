@@ -122,7 +122,6 @@
     <Compile Include="ChoicePDFForm.Designer.cs">
       <DependentUpon>ChoicePDFForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller.cs" />
     <Compile Include="locMateriel.cs">
       <SubType>Form</SubType>
     </Compile>

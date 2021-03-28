@@ -24,12 +24,12 @@ namespace locationMateriel
 
         private void btnRentedPDF_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("pdf_rented");
+            //Controller.MethodToCall("pdf_rented");
         }
 
         private void btnAvailablePDF_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("pdf_available");
+            //Controller.MethodToCall("pdf_available");
         }
     }
 }

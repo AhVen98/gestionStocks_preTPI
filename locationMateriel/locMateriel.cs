@@ -69,12 +69,12 @@ namespace locationMateriel
 
         private void btnReturnDateOver_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("delay");
+            //Controller.MethodToCall("delay");
         }
 
         private void btnLocationHistory_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("logs");
+            //Controller.MethodToCall("logs");
         }
 
         private void btnGeneratePDF_Click(object sender, EventArgs e)
@@ -87,12 +87,12 @@ namespace locationMateriel
         {
             if (txtResearch.Text == "")
             {
-                Controller.MethodToCall("default");
+                //Controller.MethodToCall("default");
             }
             else
             {
-                Controller.MethodToCall("research");
+                //Controller.MethodToCall("research");
             }
-        }
+        }     
     }
 }

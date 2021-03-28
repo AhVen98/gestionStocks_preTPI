@@ -142,7 +142,7 @@ namespace locationMateriel
 
             MySqlCommand cmd = connDB.CreateQuery();
 
-            cmd.CommandText = "UPDATE locations SET effectiveReturnDate= @today WHERE objects.id = @objID";
+            cmd.CommandText = "UPDATE locations SET effectiveReturnDate= @today WHERE locations.object_id =@objID";
 
             cmd.Parameters.AddWithValue("@objID", objectNumber);
             cmd.Parameters.AddWithValue("@today", DateTime.Today);
@@ -180,7 +180,7 @@ namespace locationMateriel
             }
             else if(state == "loué")
             {
-                cmd.CommandText = "UPDATE objects SET state = 'loué' WHERE objects.id = @objID";
+                cmd.CommandText = "UPDATE objects SET state = 'disponible' WHERE objects.id = @objID";
             }
             cmd.Parameters.AddWithValue("@objID", objectID);
 
@@ -201,7 +201,7 @@ namespace locationMateriel
 
             MySqlCommand cmd = connDB.CreateQuery();
 
-            cmd.CommandText = "SELECT objects.id, objects.name, types.name AS type, objects.state, persons.firstname, locations.endDateLocation " +
+            cmd.CommandText = "SELECT objects.id, objects.name, types.name, objects.state, persons.lastname, locations.endDateLocation " +
                 "FROM " +
                 "objects " +
                 "LEFT JOIN locations ON objects.id = locations.object_id" +
@@ -216,7 +216,41 @@ namespace locationMateriel
                 type = value[2].ToString();
                 state = value[3].ToString();
                 bool res = int.TryParse(value[0].ToString(), out id);
-                Objects obj = new Objects(name, type, state, id);
+                renter = value[4].ToString();
+                Objects obj = new Objects(name, type, state, id, renter);
+                lstAll.Add(obj);
+            }
+            return lstAll;
+        }
+
+        public List<Objects> getRentedObjects(int locNumber)
+        {
+            List<Objects> lstAll = new List<Objects>();
+
+            string name;
+            int id;
+            string renter;
+            string expectedReturn;
+
+            connDB.OpenConnection();
+
+            MySqlCommand cmd = connDB.CreateQuery();
+
+            cmd.CommandText = "SELECT objects.id, objects.name, persons.lastname, locations.endDateLocation " +
+                "FROM " +
+                "objects " +
+                "LEFT JOIN locations ON objects.id = locations.object_id AND locations.id = @locID" +
+                " LEFT JOIN persons ON locations.locator_id = persons.id";
+
+            cmd.Parameters.AddWithValue("@locID", locNumber);
+            MySqlDataReader value = connDB.Select(cmd);
+
+            while (value.Read())
+            {
+                name = value[1].ToString();
+                bool res = int.TryParse(value[0].ToString(), out id);
+                renter = value[2].ToString();
+                Objects obj = new Objects(name, id, renter);
                 lstAll.Add(obj);
             }
             return lstAll;
@@ -235,7 +269,7 @@ namespace locationMateriel
             int res = -1;
             MySqlCommand cmd = connDB.CreateQuery();
 
-            cmd.CommandText = "SELECT objects.id FROM types WHERE objects.name = @name";
+            cmd.CommandText = "SELECT objects.id FROM objects WHERE objects.name = @name";
             cmd.Parameters.AddWithValue("@name", state);
             MySqlDataReader value = connDB.Select(cmd);
             if (value.Read())
@@ -252,7 +286,7 @@ namespace locationMateriel
             connDB.OpenConnection();
             MySqlCommand cmd = connDB.CreateQuery();
 
-            cmd.CommandText = "SELECT objects.id FROM objects, locations WHERE locations.object_id = objects.id AND locations.id = @locID";
+            cmd.CommandText = "SELECT locations.object_id FROM locations WHERE locations.id = @locID";
             cmd.Parameters.AddWithValue("@locID", locationNumber);
             MySqlDataReader value = connDB.Select(cmd);
             if (value.Read())

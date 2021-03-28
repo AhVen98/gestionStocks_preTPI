@@ -27,12 +27,20 @@ namespace locationMateriel
             this.state = state;
             this.iD = ID;
         }
-        public Objects(string name, string type, string state, int ID)
+        public Objects(string name, string type, string state, int ID, string renter)
         {
             this.name = name;
             this.type = type;
             this.state = state;
             this.iD = ID;
+            this.renter = renter;
+        }
+
+        public Objects(string name, int ID, string renter)
+        {
+            this.name = name;
+            this.iD = ID;
+            this.renter = renter;
         }
 
         static public List<Objects> Load()
@@ -40,7 +48,13 @@ namespace locationMateriel
             RequestDB req = new RequestDB();
             List<Objects> lstObj = req.getObjects();
             return lstObj;
+        }
 
+        static public List<Objects> LoadRented(int locationNumber)
+        {
+            RequestDB req = new RequestDB();
+            List<Objects> lstObj = req.getRentedObjects(locationNumber);
+            return lstObj;
         }
         public string Name { get { return name; } }
         public string State { get { return state; } }

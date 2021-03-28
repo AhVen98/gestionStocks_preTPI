@@ -143,7 +143,6 @@
             // dgvGlobal
             // 
             this.dgvGlobal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGlobal.Enabled = false;
             this.dgvGlobal.Location = new System.Drawing.Point(19, 149);
             this.dgvGlobal.Name = "dgvGlobal";
             this.dgvGlobal.Size = new System.Drawing.Size(736, 397);
