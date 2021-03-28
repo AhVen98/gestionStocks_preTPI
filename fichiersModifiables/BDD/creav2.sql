@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `materialLocation`.`objects` (
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
   `dateAdded` DATE NOT NULL,
-  `state` VARCHAR(45) NOT NULL,
+  `state` VARCHAR(45) NOT NULL DEFAULT 'disponible',
   `remark` VARCHAR(50) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
