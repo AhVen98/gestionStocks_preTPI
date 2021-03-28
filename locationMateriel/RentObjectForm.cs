@@ -12,6 +12,8 @@ namespace locationMateriel
 {
     public partial class frmRentObject : Form
     {
+        string selectedDate = DateTime.Today.ToShortDateString();
+
         public frmRentObject()
         {
             InitializeComponent();
@@ -104,7 +106,30 @@ namespace locationMateriel
 
         private void btnRent_Click(object sender, EventArgs e)
         {
-            Controller.MethodToCall("rent");
+            int locatorNumber;
+            int employeeNumber;
+            string name = txtName.Text;
+            bool res = int.TryParse(txtClientID.Text, out locatorNumber);
+            bool res2 = int.TryParse(txtClientID.Text, out employeeNumber);
+            DateTime returnDate = Convert.ToDateTime(selectedDate);
+            RequestDB req = new RequestDB();
+            int objectNumber = req.ReqGetIDFromName(name);
+            string state = req.ReqCheckState(objectNumber);
+            if(state == "disponible")
+            {
+                Employees.RentObject(objectNumber, locatorNumber, employeeNumber, returnDate);
+                ActiveForm.Close();
+            }
+            else
+            {
+                MessageBox.Show("L'objet est déjà loué !");
+                ActiveForm.Close();
+            }
+        }
+
+        private void calExpectedReturn_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            selectedDate = calExpectedReturn.SelectionRange.Start.ToShortDateString();
         }
     }
 }

@@ -25,10 +25,9 @@ namespace locationMateriel
         }
 
         
-        static public void RentObject(string objName, int locator_id, int adder_id, DateTime expectedReturn )
+        static public void RentObject(int objID, int locator_id, int adder_id, DateTime expectedReturn )
         {
             RequestDB req = new RequestDB();
-            int objID = req.ReqGetIDFromName(objName);
             req.ReqRentObject(objID, locator_id, adder_id, expectedReturn);
         }
 
@@ -39,18 +38,11 @@ namespace locationMateriel
             req.ReqAddObject(name, typeID, description, employeeNumber, remark);
         }
 
-        static public void ReturnObject(string name, DateTime returnDate)
+        static public void ReturnObject(int objectNumber)
         {
+            RequestDB req = new RequestDB();
+            req.ReqReturnObject(objectNumber);
 
-            bool res = true;
-            if (res != true)
-            {
-
-            }
-            else
-            {
-
-            }
         }
 
         static public void printPDF(string data)

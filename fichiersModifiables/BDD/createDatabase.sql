@@ -1,13 +1,4 @@
--- -----------------------------------------------------
--- project : materialLocation
--- filename : createDatabase
--- author : Paola Costa
--- version : 1.0
--- -----------------------------------------------------
-
-
 -- MySQL Workbench Forward Engineering
-
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -16,18 +7,18 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema materialLocation
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `materialLocation` DEFAULT CHARACTER SET utf8MB4 ;
+
+-- -----------------------------------------------------
+-- Schema materialLocation
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `materialLocation` DEFAULT CHARACTER SET utf8 ;
 USE `materialLocation` ;
 
 -- -----------------------------------------------------
--- creation of reference tables
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- table creation : categories
+-- Table `materialLocation`.`categories`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `materialLocation`.`categories` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -36,10 +27,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- table creation : types
+-- Table `materialLocation`.`types`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `materialLocation`.`types` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `category_id` INT NOT NULL,
   `name` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`id`),
@@ -55,10 +46,10 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- table creation : roles
+-- Table `materialLocation`.`roles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `materialLocation`.`roles` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -66,17 +57,11 @@ CREATE TABLE IF NOT EXISTS `materialLocation`.`roles` (
 ENGINE = InnoDB;
 
 
-
 -- -----------------------------------------------------
--- creation of main tables
--- -----------------------------------------------------
-
-
--- -----------------------------------------------------
--- table creation : persons
+-- Table `materialLocation`.`persons`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `materialLocation`.`persons` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `role_id` INT NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
@@ -95,17 +80,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- table creation : objects
+-- Table `materialLocation`.`objects`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `materialLocation`.`objects` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `type_id` INT NOT NULL,
   `adder_id` INT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
   `dateAdded` DATE NOT NULL,
-  `state` VARCHAR(45) NOT NULL DEFAULT 'available',
-  `remark` VARCHAR(50) NULL DEFAULT NULL,
+  `state` VARCHAR(45) NOT NULL DEFAULT 'disponible',
+  `remark` VARCHAR(50) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_objects_types1_idx` (`type_id` ASC),
@@ -124,16 +109,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- table creation : locations
+-- Table `materialLocation`.`locations`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `materialLocation`.`locations` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `object_id` INT NOT NULL,
   `locator_id` INT NOT NULL,
   `employee_id` INT NULL,
   `beginDateLocation` DATE NOT NULL,
   `endDateLocation` DATE NOT NULL,
-  `effectiveReturnDate` DATE NULL DEFAULT NULL,
+  `effectiveReturnDate` DATE NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_locations_objects1_idx` (`object_id` ASC),

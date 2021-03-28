@@ -74,11 +74,10 @@ namespace locationMateriel
         public int ReqGetIDFromName(string name)
         {
             connDB.OpenConnection();
-
             int res = -1;
             MySqlCommand cmd = connDB.CreateQuery();
 
-            cmd.CommandText = "SELECT objects.id FROM types WHERE objects.name = @name";
+            cmd.CommandText = "SELECT objects.id FROM objects WHERE objects.name = @name";
             cmd.Parameters.AddWithValue("@name", name);
             MySqlDataReader value = connDB.Select(cmd);
             if (value.Read())
@@ -121,11 +120,11 @@ namespace locationMateriel
         public void ReqRentObject(int objectID, int locator_id, int adder_id, DateTime endRentingTime)
         {
             connDB.OpenConnection();
+
             MySqlCommand cmd = connDB.CreateQuery();
 
-            cmd.CommandText = "INSERT INTO locations (object_id, locator_id, adder_id, beginRent, endRent) VALUES (@objID,  @locatorNumber, @employeeNumber, @beginDate, @endDate)";
+            cmd.CommandText = "INSERT INTO locations (object_id, locator_id, employee_id, beginDateLocation, endDateLocation) VALUES (@objID,  @locatorNumber, @employeeNumber, @beginDate, @endDate)";
             
-            cmd.Parameters.AddWithValue("@beginDate", DateTime.Today);
             cmd.Parameters.AddWithValue("@objID", objectID);
             cmd.Parameters.AddWithValue("@locatorNumber", locator_id);
             cmd.Parameters.AddWithValue("@employeeNumber", adder_id);
@@ -133,15 +132,70 @@ namespace locationMateriel
             cmd.Parameters.AddWithValue("@endDate", endRentingTime);
 
             connDB.ExecuteQuery(cmd);
+            ReqChangeState(objectID, "disponible");
             connDB.CloseConnection();
+        }
 
+        public void ReqReturnObject(int objectNumber)
+        {
+            connDB.OpenConnection();
+
+            MySqlCommand cmd = connDB.CreateQuery();
+
+            cmd.CommandText = "UPDATE locations SET effectiveReturnDate= @today WHERE objects.id = @objID";
+
+            cmd.Parameters.AddWithValue("@objID", objectNumber);
+            cmd.Parameters.AddWithValue("@today", DateTime.Today);
+
+            connDB.ExecuteQuery(cmd);
+            ReqChangeState(objectNumber, "loué");
+            connDB.CloseConnection();
+        }
+
+        public string ReqCheckState(int objectID)
+        {
+            string state="";
+            connDB.OpenConnection();
+
+            MySqlCommand cmd = connDB.CreateQuery();
+
+            cmd.CommandText = "SELECT objects.state FROM objects WHERE objects.id = @objID";
+
+            cmd.Parameters.AddWithValue("@objID", objectID);
+            MySqlDataReader value = connDB.Select(cmd);
+
+            if (value.Read())
+            {
+                state= value[0].ToString();
+            }
+            return state;
+        }
+
+        public void ReqChangeState(int objectID, string state)
+        {
+            MySqlCommand cmd = connDB.CreateQuery();
+            if(state == "disponible")
+            {
+                cmd.CommandText = "UPDATE objects SET state = 'loué' WHERE objects.id = @objID";
+            }
+            else if(state == "loué")
+            {
+                cmd.CommandText = "UPDATE objects SET state = 'loué' WHERE objects.id = @objID";
+            }
+            cmd.Parameters.AddWithValue("@objID", objectID);
+
+            connDB.ExecuteQuery(cmd);
         }
 
         public List<Objects> getObjects()
         {
             List<Objects> lstAll = new List<Objects>();
             string state;
+            string type;
             string name;
+            int id;
+            string renter;
+            string expectedReturn;
             
             connDB.OpenConnection();
 
@@ -159,8 +213,10 @@ namespace locationMateriel
             while (value.Read())
             {
                 name = value[1].ToString();
+                type = value[2].ToString();
                 state = value[3].ToString();
-                Objects obj = new Objects(name, state);
+                bool res = int.TryParse(value[0].ToString(), out id);
+                Objects obj = new Objects(name, type, state, id);
                 lstAll.Add(obj);
             }
             return lstAll;
@@ -175,6 +231,7 @@ namespace locationMateriel
 
         public int ReqPDF(string state)
         {
+            connDB.OpenConnection();
             int res = -1;
             MySqlCommand cmd = connDB.CreateQuery();
 
@@ -187,6 +244,24 @@ namespace locationMateriel
             }
             value.Dispose();
             return res;
+        }
+
+        public int ReqGetObjectNumber(int locationNumber)
+        {
+            int objectNumber = -1;
+            connDB.OpenConnection();
+            MySqlCommand cmd = connDB.CreateQuery();
+
+            cmd.CommandText = "SELECT objects.id FROM objects, locations WHERE locations.object_id = objects.id AND locations.id = @locID";
+            cmd.Parameters.AddWithValue("@locID", locationNumber);
+            MySqlDataReader value = connDB.Select(cmd);
+            if (value.Read())
+            {
+                objectNumber = (int)value[0];
+            }
+            value.Dispose();
+            connDB.CloseConnection();
+            return objectNumber;
         }
     }
 }

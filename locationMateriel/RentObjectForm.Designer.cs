@@ -36,6 +36,7 @@ namespace locationMateriel
             this.btnRent = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grpClient = new System.Windows.Forms.GroupBox();
+            this.lblInDevelopment = new System.Windows.Forms.Label();
             this.rbtnNewClient = new System.Windows.Forms.RadioButton();
             this.rbtnExistingClient = new System.Windows.Forms.RadioButton();
             this.txtClientID = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@ namespace locationMateriel
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblBirth = new System.Windows.Forms.Label();
             this.lblMail = new System.Windows.Forms.Label();
-            this.lblInDevelopment = new System.Windows.Forms.Label();
             this.grpClient.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@ namespace locationMateriel
             this.calExpectedReturn.Location = new System.Drawing.Point(292, 85);
             this.calExpectedReturn.Name = "calExpectedReturn";
             this.calExpectedReturn.TabIndex = 9;
+            this.calExpectedReturn.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calExpectedReturn_DateChanged);
             // 
             // btnRent
             // 
@@ -115,6 +116,17 @@ namespace locationMateriel
             this.grpClient.TabIndex = 12;
             this.grpClient.TabStop = false;
             this.grpClient.Text = "Client";
+            // 
+            // lblInDevelopment
+            // 
+            this.lblInDevelopment.AutoSize = true;
+            this.lblInDevelopment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInDevelopment.ForeColor = System.Drawing.Color.Red;
+            this.lblInDevelopment.Location = new System.Drawing.Point(82, 45);
+            this.lblInDevelopment.Name = "lblInDevelopment";
+            this.lblInDevelopment.Size = new System.Drawing.Size(154, 13);
+            this.lblInDevelopment.TabIndex = 20;
+            this.lblInDevelopment.Text = "Pas encore implémenté !!!";
             // 
             // rbtnNewClient
             // 
@@ -232,17 +244,6 @@ namespace locationMateriel
             this.lblMail.TabIndex = 19;
             this.lblMail.Text = "E-Mail";
             this.lblMail.Visible = false;
-            // 
-            // lblInDevelopment
-            // 
-            this.lblInDevelopment.AutoSize = true;
-            this.lblInDevelopment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInDevelopment.ForeColor = System.Drawing.Color.Red;
-            this.lblInDevelopment.Location = new System.Drawing.Point(82, 45);
-            this.lblInDevelopment.Name = "lblInDevelopment";
-            this.lblInDevelopment.Size = new System.Drawing.Size(154, 13);
-            this.lblInDevelopment.TabIndex = 20;
-            this.lblInDevelopment.Text = "Pas encore implémenté !!!";
             // 
             // frmRentObject
             // 

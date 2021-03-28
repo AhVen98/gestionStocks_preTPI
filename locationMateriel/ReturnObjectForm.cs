@@ -21,5 +21,16 @@ namespace locationMateriel
         {
             ActiveForm.Close();
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            int rentNumber;
+            int objectID;
+            DateTime returnDate = DateTime.Today;
+            bool res = int.TryParse(txtRentNumber.Text, out rentNumber);
+            RequestDB req = new RequestDB();
+            objectID = req.ReqGetObjectNumber(rentNumber);
+            Employees.ReturnObject(objectID);
+        }
     }
 }

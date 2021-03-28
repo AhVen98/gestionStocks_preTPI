@@ -11,24 +11,28 @@ namespace locationMateriel
     public class Objects
     {
         protected string name;
-        protected string description;
-        protected DateTime dateAdded;
+        protected string type;
+        protected string renter;
+        protected DateTime expectedReturn;
         protected string state;
-        protected string remark;
+        protected int iD;
 
 
-        public Objects(string name, string description, DateTime dateAdded, string state, string remark = "")
+        public Objects(string name, string type, string state, int ID, DateTime dateReturn, string renter = "")
         {
             this.name = name;
-            this.description = description;
-            this.dateAdded = dateAdded;
+            this.type = type;
+            this.renter = renter;
+            this.expectedReturn = dateReturn;
             this.state = state;
-            this.remark = remark;
+            this.iD = ID;
         }
-        public Objects(string name, string state)
+        public Objects(string name, string type, string state, int ID)
         {
             this.name = name;
+            this.type = type;
             this.state = state;
+            this.iD = ID;
         }
 
         static public List<Objects> Load()
@@ -40,6 +44,11 @@ namespace locationMateriel
         }
         public string Name { get { return name; } }
         public string State { get { return state; } }
+        public int ID { get { return iD; } }
+        public string Type { get { return type; } }
+        public DateTime ExpectedReturn { get { return expectedReturn; } }
+        public string Renter { get { return renter; } }
+
     }
 }
 

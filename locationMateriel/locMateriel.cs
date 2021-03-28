@@ -21,7 +21,6 @@ namespace locationMateriel
         private void locMateriel_Load(object sender, EventArgs e)
         {
             List<string> lstTab = new List<string>();
-            //string[] row = { };
 
             dgvGlobal.ColumnCount = 6;
             //option for display
@@ -42,40 +41,12 @@ namespace locationMateriel
             dgvGlobal.Columns[5].Name = "Id";
             dgvGlobal.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
 
-
-            //Controller.MethodToCall("base");
-
-            
             List<Objects> lstObj = Objects.Load();
             foreach (Objects obj in lstObj)
             {
-                /*lstTab.Add(obj.Name);
-                lstTab.Add(obj.State);
-                row = lstTab.ToArray();*/
-                string[] row = { obj.Name, obj.State};
+                string[] row = { obj.Name, obj.Type, obj.State, obj.Renter, obj.ExpectedReturn.ToString(), obj.ID.ToString()};
                 dgvGlobal.Rows.Add(row);
             }
-            /*try
-            {
-                //connect to the database
-                connection = new ConnectionBD();
-
-                //get the list of video games and display it
-                List<VideoGame> listVideoGames = connection.GetVideoGames();
-                foreach (VideoGame vg in listVideoGames)
-                {
-                dgvGlobal.Rows.Add(vg.DisplayRow());
-                }
-            }
-            catch (Exception vgex)
-            {
-                MessageBox.Show(vgex.Message);
-            }*/
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAddObject_Click(object sender, EventArgs e)

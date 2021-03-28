@@ -50,7 +50,6 @@
             this.lblLocationMat_Title.Size = new System.Drawing.Size(430, 51);
             this.lblLocationMat_Title.TabIndex = 0;
             this.lblLocationMat_Title.Text = "Location de matériel";
-            this.lblLocationMat_Title.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnAddObject
             // 
@@ -144,6 +143,7 @@
             // dgvGlobal
             // 
             this.dgvGlobal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGlobal.Enabled = false;
             this.dgvGlobal.Location = new System.Drawing.Point(19, 149);
             this.dgvGlobal.Name = "dgvGlobal";
             this.dgvGlobal.Size = new System.Drawing.Size(736, 397);
